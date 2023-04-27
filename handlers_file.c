@@ -5,7 +5,7 @@ unsigned char handle_len(const char *modifier, char *index);
 int handle_width(va_list data, const char *modifier, char *index);
 int handle_prec(va_list data, const char *modifier, char *index);
 unsigned int (*handle_specif(const char *specifier))(va_list, buff_t *,
-																										 unsigned char, int, int, unsigned char);
+		unsigned char, int, int, unsigned char);
 
 /**
  * handle_flag - Matches flags with corresponding values.
@@ -159,13 +159,14 @@ int handle_prec(va_list data, const char *modifier, char *index)
 /**
  * handle_specif - Matches a conversion specifier with
  *                     a corresponding conversion function.
- * @specifier: A pointer to a potential conversion specifier.
- *
+ * @char: ..
+ * @int: ..
+ * @ buff_t: ..
  * Return: If a conversion function is matched - a pointer to the function.
  *         Otherwise - NULL.
  */
 unsigned int (*handle_specif(const char *specifier))(va_list, buff_t *,
-																										 unsigned char, int, int, unsigned char)
+		unsigned char, int, int, unsigned char)
 {
 	int i;
 	convert_t converters[] = {
