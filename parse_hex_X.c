@@ -6,7 +6,7 @@ unsigned int parse_X(va_list data, buff_t *cout,
 		unsigned char flags, int wid, int prec, unsigned char len);
 
 /**
- * parse_hex - Converts an unsigned int argument to hex using abcdef
+ * parse_hex - this function that Converts an unsigned int argument to hex using abcdef
  *             and stores it to a buffer contained in a struct.
  * @data: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
