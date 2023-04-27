@@ -65,8 +65,8 @@ int read_f_printf(const char *format, va_list data, buff_t *cout)
 }
 
 /**
- * _printf - prints a formatted string.
- * @format: Character string to print
+ * _printf - this function that prints a formatted string.
+ * @format: Characters of string
  *
  * Return: The number of char printed.
  */
