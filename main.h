@@ -39,6 +39,7 @@ typedef struct buff_s
  * struct convert_to_s - converter struct.
  * @specifier: conversion specifier.
  * @func: pointer to a conversion function corresponding to specifier.
+ *
  */
 typedef struct convert_to_s
 {
