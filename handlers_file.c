@@ -8,7 +8,7 @@ unsigned int (*handle_specif(const char *specifier))(va_list, buff_t *,
 		unsigned char, int, int, unsigned char);
 
 /**
- * handle_flag - Matches flags with corresponding values.
+ * handle_flag - this function Matches flags with corresponding values.
  * @flag: A pointer to a potential string of flags.
  * @index: An index counter for the original format string.
  *
