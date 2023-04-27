@@ -15,7 +15,7 @@ unsigned int convert_ptr(va_list data, buff_t *cout,
  * @wid: A width modifier.
  * @prec: A precision modifier.
  * @len: A length modifier.
- * @cout: A buff_t struct containing a character array.
+ * @cout: A buff_t struct containing a character of  array.
  *
  * Return: The number of bytes stored to the buffer.
  */
