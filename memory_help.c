@@ -49,7 +49,7 @@ void free_buffer(buff_t *cout)
 /**
  * _buffer - Initializes a variable of struct type buff_t.
  *
- * Return: A pointer to the initialized buff_t.
+ * Return: A pointer to the initialized the variable buff_t.
  */
 buff_t *_buffer(void)
 {
