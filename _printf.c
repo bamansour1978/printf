@@ -17,11 +17,12 @@ void clean_up(va_list data, buff_t *cout)
 }
 
 /**
- * read_f_printf - this function that Reads through the format of  string for _printf.
+ * read_f_printf - this function that Reads through the format
+ * of  string for _printf.
  * @format: Character string to print
  * @cout: buff_t struct containing a buffer.
  * @data: arguments to be printed.
- *
+ * int - ..
  * Return: The number of characters stored to @cout.
  */
 int read_f_printf(const char *format, va_list data, buff_t *cout)
@@ -29,8 +30,7 @@ int read_f_printf(const char *format, va_list data, buff_t *cout)
 	int i, width, prec, ret_n = 0;
 	char tmp;
 	unsigned char flags, len;
-	unsigned int (*f)(va_list, buff_t *,
-			unsigned char, int, int, unsigned char);
+	unsigned int (*f)(va_list, buff_t *, unsigned char, int, int, unsigned char);
 
 	for (i = 0; *(format + i); i++)
 	{
@@ -83,7 +83,6 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(data, format);
-
 	ret_n = read_f_printf(format, data, cout);
 
 	return (ret_n);
