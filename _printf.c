@@ -1,35 +1,35 @@
 #include "main.h"
 
-void cleanup(va_list args, buffer_t *output);
-int run_printf(const char *format, va_list args, buffer_t *output);
+void clean_up(va_list data, buff_t *cout);
+int read_f_printf(const char *format, va_list data, buff_t *cout);
 int _printf(const char *format, ...);
 
 /**
- * cleanup - Peforms cleanup operations for _printf.
- * @args: A va_list of arguments provided to _printf.
- * @output: A buffer_t struct.
+ * clean_up - this function that performance cleanup operations for _printf.
+ * @data: arguments provided to _printf.
+ * @cout: buff_t struct.
  */
-void cleanup(va_list args, buffer_t *output)
+void clean_up(va_list data, buff_t *cout)
 {
-	va_end(args);
-	write(1, output->start, output->len);
-	free_buffer(output);
+	va_end(data);
+	write(1, cout->start, cout->len);
+	free_buffer(cout);
 }
 
 /**
- * run_printf - Reads through the format string for _printf.
- * @format: Character string to print - may contain directives.
- * @output: A buffer_t struct containing a buffer.
- * @args: A va_list of arguments.
+ * read_f_printf - this function that Reads through the format string for _printf.
+ * @format: Character string to print
+ * @cout: buff_t struct containing a buffer.
+ * @data: arguments to be printed.
  *
- * Return: The number of characters stored to output.
+ * Return: The number of characters stored to @cout.
  */
-int run_printf(const char *format, va_list args, buffer_t *output)
+int read_f_printf(const char *format, va_list data, buff_t *cout)
 {
-	int i, wid, prec, ret = 0;
+	int i, width, prec, ret_n = 0;
 	char tmp;
 	unsigned char flags, len;
-	unsigned int (*f)(va_list, buffer_t *,
+	unsigned int (*f)(va_list, buff_t *,
 			unsigned char, int, int, unsigned char);
 
 	for (i = 0; *(format + i); i++)
@@ -38,53 +38,53 @@ int run_printf(const char *format, va_list args, buffer_t *output)
 		if (*(format + i) == '%')
 		{
 			tmp = 0;
-			flags = handle_flags(format + i + 1, &tmp);
-			wid = handle_width(args, format + i + tmp + 1, &tmp);
-			prec = handle_precision(args, format + i + tmp + 1,
+			flags = handle_flag(format + i + 1, &tmp);
+			width = handle_width(data, format + i + tmp + 1, &tmp);
+			prec = handle_prec(data, format + i + tmp + 1,
 					&tmp);
-			len = handle_length(format + i + tmp + 1, &tmp);
+			len = handle_len(format + i + tmp + 1, &tmp);
 
-			f = handle_specifiers(format + i + tmp + 1);
+			f = handle_specif(format + i + tmp + 1);
 			if (f != NULL)
 			{
 				i += tmp + 1;
-				ret += f(args, output, flags, wid, prec, len);
+				ret_n += f(data, cout, flags, width, prec, len);
 				continue;
 			}
 			else if (*(format + i + tmp + 1) == '\0')
 			{
-				ret = -1;
+				ret_n = -1;
 				break;
 			}
 		}
-		ret += _memcpy(output, (format + i), 1);
+		ret_n += _memcpy(cout, (format + i), 1);
 		i += (len != 0) ? 1 : 0;
 	}
-	cleanup(args, output);
-	return (ret);
+	clean_up(data, cout);
+	return (ret_n);
 }
 
 /**
- * _printf - Outputs a formatted string.
- * @format: Character string to print - may contain directives.
+ * _printf - prints a formatted string.
+ * @format: Character string to print
  *
- * Return: The number of characters printed.
+ * Return: The number of char printed.
  */
 int _printf(const char *format, ...)
 {
-	buffer_t *output;
-	va_list args;
-	int ret;
+	buff_t *cout;
+	va_list data;
+	int ret_n;
 
 	if (format == NULL)
 		return (-1);
-	output = init_buffer();
-	if (output == NULL)
+	cout = _buffer();
+	if (cout == NULL)
 		return (-1);
 
-	va_start(args, format);
+	va_start(data, format);
 
-	ret = run_printf(format, args, output);
+	ret_n = read_f_printf(format, data, cout);
 
-	return (ret);
+	return (ret_n);
 }
