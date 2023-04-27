@@ -17,7 +17,7 @@ void clean_up(va_list data, buff_t *cout)
 }
 
 /**
- * read_f_printf - this function that Reads through the format string for _printf.
+ * read_f_printf - this function that Reads through the format of  string for _printf.
  * @format: Character string to print
  * @cout: buff_t struct containing a buffer.
  * @data: arguments to be printed.
