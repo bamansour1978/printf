@@ -5,7 +5,7 @@ void free_buffer(buff_t *cout);
 buff_t *_buffer(void);
 
 /**
- * _memcpy - Copies n bytes from memory area src to
+ * _memcpy - this function that Copies n bytes from memory area src to
  *           the buffer contained in a buff_t struct.
  * @cout: A buff_t struct.
  * @src: A pointer to the memory area to copy.
