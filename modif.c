@@ -59,7 +59,7 @@ unsigned int print_str_width(buff_t *cout,
 }
 
 /**
- * print_negl_width - Stores trailing spaces to a buffer for a '-' flag.
+ * print_negl_width - this function that Stores trailing spaces to a buffer for a '-' flag.
  * @cout: A buff_t struct containing a character array.
  * @printed: The current number of bytes already stored to cout
  *           for a given specifier.
