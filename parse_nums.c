@@ -10,7 +10,7 @@ unsigned int convert_oct(va_list data, buff_t *cout,
 		unsigned char flags, int wid, int prec, unsigned char len);
 
 /**
- * convert_Int - Converts an argument to a signed int and
+ * convert_Int - this function that Converts an argument to a signed int and
  *              stores it to a buffer contained in a struct.
  * @data: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
