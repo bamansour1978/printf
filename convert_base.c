@@ -7,7 +7,7 @@ unsigned int convert_u_base(buff_t *cout,
 		unsigned char flags, int wid, int prec);
 
 /**
- * convert_s_base - Converts a signed long to an inputted base and stores
+ * convert_s_base - this function Converts a signed long to an inputted base and stores
  *                 the result to a buffer contained in a struct.
  * @cout: A buff_t struct containing a character array.
  * @num: A signed long to be converted.
