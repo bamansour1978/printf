@@ -66,7 +66,7 @@ unsigned int print_str_width(buff_t *cout,
  * @flags: Flag modifiers.
  * @wid: A width modifier.
  *
- * Return: The number of bytes stored to the buffer.
+ * Return: The number of bytes stored to  buffer.
  */
 unsigned int print_negl_width(buff_t *cout, unsigned int printed,
 		unsigned char flags, int wid)
