@@ -10,7 +10,7 @@ unsigned int convert_Rot13(va_list data, buff_t *cout,
 		unsigned char flags, int wid, int prec, unsigned char len);
 
 /**
- * convert_s - Converts an argument to a string and
+ * convert_s - this function that Converts an argument to a string and
  *             stores it to a buffer contained in a struct.
  * @data: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
